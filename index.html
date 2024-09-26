@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Rotator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="link-container">Loading...</div>
+
+    <script>
+        const links = [
+            'https://example1.com',
+            'https://example2.com',
+            'https://example3.com'
+        ];
+        let currentIndex = 0;
+        const delay = 10000; // 10 seconds
+
+        function displayLink() {
+            document.getElementById('link-container').innerHTML = `<a href="${links[currentIndex]}" target="_blank">${links[currentIndex]}</a>`;
+            currentIndex = (currentIndex + 1) % links.length;
+            setTimeout(displayLink, delay);
+        }
+
+        displayLink();
+    </script>
+</body>
+</html>
